@@ -9,8 +9,7 @@
 }
 
 .navbar .navbar-collapse .navbar-form-no-border {
-    border-top: 0;
-    border-bottom: 0;
+    border: 0;
 }
 
 .navbar .navbar-toggle-float-left {
@@ -24,15 +23,69 @@
 
 .footer {
     padding: 1.5%;
-    background-color: #f8f8f8;
+    background-color: #428bca;
     text-align: center;
 }
 
-.footer .p-no-margin {
+.footer p {
     margin: 0;
+    color: #333333;
 }
 
 .container-800-center-padding {
     padding-left: 3%;
     padding-right: 3%;
+}
+
+.navbar-default {
+    background-color: #b3d1ea;
+    border-color: #428bca;
+}
+
+.navbar-default .navbar-brand {
+    color: #333333;
+}
+
+.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-brand:focus {
+    color: #428bca;
+}
+
+.navbar-default .navbar-text {
+    color: #333333;
+}
+
+.navbar-default .navbar-nav > li > a {
+    color: #333333;
+}
+
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus {
+    color: #428bca;
+}
+
+.navbar-default .navbar-toggle {
+    border-color: #428bca;
+}
+
+.navbar-default .navbar-toggle:hover,
+.navbar-default .navbar-toggle:focus {
+    background-color: #428bca;
+}
+
+.navbar-default .navbar-toggle .icon-bar {
+    background-color: #333333;
+}
+
+.navbar-default .navbar-collapse,
+.navbar-default .navbar-form {
+    border-color: #333333;
+}
+
+.navbar-default .navbar-link {
+    color: #333333;
+}
+
+.navbar-default .navbar-link:hover {
+    color: #428bca;
 }
