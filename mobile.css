@@ -9,6 +9,30 @@
 }
 
 .navbar .navbar-collapse .navbar-form-no-border {
-  border-top: 0;
-  border-bottom: 0;
+    border-top: 0;
+    border-bottom: 0;
+}
+
+.navbar .navbar-toggle-float-left {
+    float: left;
+    margin-left: 15px;
+}
+
+.top-buffer {
+    margin-top: 30px;
+}
+
+.footer {
+    padding: 1.5%;
+    background-color: #f8f8f8;
+    text-align: center;
+}
+
+.footer .p-no-margin {
+    margin: 0;
+}
+
+.container-800-center-padding {
+    padding-left: 3%;
+    padding-right: 3%;
 }
