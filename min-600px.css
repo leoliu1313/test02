@@ -1,0 +1,16 @@
+/* responsive - Constrain the maximum width of the design for wide viewport */
+
+.container {
+    margin: auto; /* browser defines it. align in center if element is display: block */
+    max-width: 800px;
+}
+
+.navbar .navbar-nav {
+    display: inline-block;
+    float: none;
+    vertical-align: middle;
+}
+
+.navbar .navbar-collapse {
+    text-align: center;
+}
