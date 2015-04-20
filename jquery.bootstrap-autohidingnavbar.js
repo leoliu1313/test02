@@ -115,7 +115,7 @@
                     scrollHandler(autoHidingNavbar);
                 }, _throttleDelay);
             }
-            $(".navbar-brand").text("000 " + $window.width());
+            $(".navbar-brand").text("new " + $window.width());
         });
 
         $window.on('resize.' + pluginName, function () {
