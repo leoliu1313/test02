@@ -122,28 +122,16 @@
             _scrollThrottleTimer = setTimeout(function () {
                 _windowHeight = $window.height();
             }, _throttleDelay);
-            $(".navbar-brand").text("resize");
+            // $(".navbar-brand").text("resize");
         });
 
         $window.on('orientationchange.' + pluginName, function () {
             autoHidingNavbar.element.attr("width", $window.width());
-            hide(autoHidingNavbar);
-            clearTimeout(_resizeThrottleTimer);
-            _resizeThrottleTimer = setTimeout(function () {
-                _windowHeight = $window.height();
-                show(autoHidingNavbar);
-            }, 2000);
             $(".navbar-brand").text("111" + $window.width());
         });
 
         $window.on('orientationchange', function () {
             autoHidingNavbar.element.attr("width", $window.width());
-            hide(autoHidingNavbar);
-            clearTimeout(_resizeThrottleTimer);
-            _resizeThrottleTimer = setTimeout(function () {
-                _windowHeight = $window.height();
-                show(autoHidingNavbar);
-            }, 2000);
             $(".navbar-brand").text("222" + $window.width());
         });
     }
