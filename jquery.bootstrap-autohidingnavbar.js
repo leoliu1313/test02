@@ -119,21 +119,24 @@
         });
 
         $window.on('resize.' + pluginName, function () {
-            clearTimeout(_scrollThrottleTimer);
-            _scrollThrottleTimer = setTimeout(function () {
+            $(document).ready(function () {
                 _windowHeight = $window.height();
-            }, _throttleDelay);
-            $(".navbar-brand").append("resize");
+                $(".navbar-brand").append(" resize " + _windowHeight);
+            });
         });
 
         $window.on('orientationchange.' + pluginName, function () {
-            autoHidingNavbar.element.attr("width", $window.width());
-            $(".navbar-brand").append("111 " + $window.width());
+            $(document).ready(function () {
+                autoHidingNavbar.element.attr("width", $window.width());
+                $(".navbar-brand").append(" 111 " + autoHidingNavbar.element.attr("width"));
+            });
         });
 
         $window.on('orientationchange', function () {
-            autoHidingNavbar.element.attr("width", $window.width());
-            $(".navbar-brand").append("222 " + $window.width());
+            $(document).ready(function () {
+                autoHidingNavbar.element.attr("width", $window.width());
+                $(".navbar-brand").append(" 222 " + autoHidingNavbar.element.attr("width"));
+            });
         });
     }
 
