@@ -115,6 +115,7 @@
                     scrollHandler(autoHidingNavbar);
                 }, _throttleDelay);
             }
+            $(".navbar-brand").text("000 " + $window.width());
         });
 
         $window.on('resize.' + pluginName, function () {
@@ -122,17 +123,17 @@
             _scrollThrottleTimer = setTimeout(function () {
                 _windowHeight = $window.height();
             }, _throttleDelay);
-            // $(".navbar-brand").text("resize");
+            $(".navbar-brand").append("resize");
         });
 
         $window.on('orientationchange.' + pluginName, function () {
             autoHidingNavbar.element.attr("width", $window.width());
-            $(".navbar-brand").text("111" + $window.width());
+            $(".navbar-brand").append("111 " + $window.width());
         });
 
         $window.on('orientationchange', function () {
             autoHidingNavbar.element.attr("width", $window.width());
-            $(".navbar-brand").text("222" + $window.width());
+            $(".navbar-brand").append("222 " + $window.width());
         });
     }
 
