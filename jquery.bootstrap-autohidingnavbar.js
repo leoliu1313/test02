@@ -22,7 +22,7 @@
         defaults = {
             disableAutohide: false,
             showOnUpscroll: true,
-            showOnBottom: true,
+            showOnBottom: false,
             hideOffset: 'auto', // "auto" means the navbar height
             animationDuration: 200
         };
@@ -126,21 +126,25 @@
         });
 
         $window.on('orientationchange.' + pluginName, function () {
+            autoHidingNavbar.element.attr("width", $window.width());
             hide(autoHidingNavbar);
             clearTimeout(_resizeThrottleTimer);
             _resizeThrottleTimer = setTimeout(function () {
                 _windowHeight = $window.height();
                 show(autoHidingNavbar);
             }, 2000);
+            $(".navbar-brand").text("111" + $window.width());
         });
 
         $window.on('orientationchange', function () {
+            autoHidingNavbar.element.attr("width", $window.width());
             hide(autoHidingNavbar);
             clearTimeout(_resizeThrottleTimer);
             _resizeThrottleTimer = setTimeout(function () {
                 _windowHeight = $window.height();
                 show(autoHidingNavbar);
             }, 2000);
+            $(".navbar-brand").text("222" + $window.width());
         });
     }
 
