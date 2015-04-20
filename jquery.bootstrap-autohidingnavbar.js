@@ -122,7 +122,7 @@
             _scrollThrottleTimer = setTimeout(function () {
                 _windowHeight = $window.height();
             }, _throttleDelay);
-            $(.navbar-brand).text("resize");
+            $(".navbar-brand").text("resize");
         });
 
         $window.on('orientationchange.' + pluginName, function () {
