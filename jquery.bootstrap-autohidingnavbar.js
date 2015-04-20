@@ -115,28 +115,31 @@
                     scrollHandler(autoHidingNavbar);
                 }, _throttleDelay);
             }
-            $(".navbar-brand").text("new " + $window.width());
+            $(".navbar-brand").text("0 " + $window.width());
         });
 
         $window.on('resize.' + pluginName, function () {
-            $(document).ready(function () {
+            clearTimeout(_scrollThrottleTimer);
+            _scrollThrottleTimer = setTimeout(function () {
                 _windowHeight = $window.height();
-                $(".navbar-brand").append(" resize " + _windowHeight);
-            });
+                $(".navbar-brand").append(" w " + _windowHeight);
+            }, _throttleDelay);
         });
 
         $window.on('orientationchange.' + pluginName, function () {
-            $(document).ready(function () {
+            autoHidingNavbar.element.attr("width", $window.width() * 3);
+            setTimeout(function () {
                 autoHidingNavbar.element.attr("width", $window.width());
-                $(".navbar-brand").append(" 111 " + autoHidingNavbar.element.attr("width"));
-            });
+                $(".navbar-brand").append(" 1 " + autoHidingNavbar.element.attr("width"));
+            }, 2000);
         });
 
         $window.on('orientationchange', function () {
-            $(document).ready(function () {
+            autoHidingNavbar.element.attr("width", $window.width() * 3);
+            setTimeout(function () {
                 autoHidingNavbar.element.attr("width", $window.width());
-                $(".navbar-brand").append(" 222 " + autoHidingNavbar.element.attr("width"));
-            });
+                $(".navbar-brand").append(" 2 " + autoHidingNavbar.element.attr("width"));
+            }, 2000);
         });
     }
 
