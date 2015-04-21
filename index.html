@@ -65,7 +65,7 @@
             <hr>
         </div>
         <div class="row">
-            <div class="panel panel-default" id="users2">
+            <div class="panel panel-default" id="id-search-key">
                 <div class="panel-heading">
                     <div class="input-group">
                         <input type="text" class="form-control search" placeholder="Search" aria-label="...">
@@ -73,23 +73,6 @@
                 </div>
                 <div class="panel-body">
                     <ul class="list-group list">
-                        <li class="list-group-item">
-                            <a href="#" class="list-group-item name">Cras justo odio</a>
-                        </li>
-                        <li class="list-group-item">
-                            <a href="#" class="list-group-item name">Dapibus ac facilisis in</a>
-                        </li>
-                        <li class="list-group-item">
-                            <a href="#" class="list-group-item name">Morbi leo risus 111</a>
-                        </li>
-                        <li class="list-group-item">
-                            <a href="#" class="list-group-item name">Porta ac consectetur ac</a>
-                            <a href="#" class="list-group-item address">11111</a>
-                        </li>
-                        <li class="list-group-item">
-                            <a href="#" class="list-group-item name">test</a>
-                            <a href="#" class="list-group-item address">1231213</a>
-                        </li>
                     </ul>
                 </div>
             </div>
@@ -112,9 +95,18 @@
     <script src="http://listjs.com/no-cdn/list.js"></script>
     <script type="text/javascript">
         var options = {
+            item: '<li class="list-group-item"><a href="#" class="list-group-item name"></a></li>',
             valueNames: ['name']
         };
-        var userList = new List('users2', options);
+        var values = [
+            {
+                name: 'Jonny'
+            }
+    , {
+                name: 'Jonas'
+            }
+];
+        var userList = new List('id-search-key', options, values);
         $("#search-watch").keyup(function () {
             $(".search").val($("#search-watch").val());
             userList.search($("#search-watch").val());
