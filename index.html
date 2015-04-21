@@ -43,15 +43,8 @@
                 <ul class="nav navbar-nav navbar-right">
                     <li>
                         <form class="navbar-form navbar-form-no-border" role="search">
-                            <div class="input-group">
-                                <input type="text" class="form-control" placeholder="Search1" aria-label="...">
-                            </div>
-                        </form>
-                    </li>
-                    <li>
-                        <form class="navbar-form navbar-form-no-border" role="search">
                             <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Search2" aria-label="...">
+                                <input type="text" class="form-control" id="search-watch" placeholder="Search" aria-label="...">
                             </div>
                         </form>
                     </li>
@@ -75,7 +68,7 @@
             <div class="panel panel-default" id="users2">
                 <div class="panel-heading">
                     <div class="input-group">
-                        <input type="text" class="form-control search" placeholder="Search3" aria-label="...">
+                        <input type="text" class="form-control search" placeholder="Search" aria-label="...">
                     </div>
                 </div>
                 <div class="panel-body">
@@ -87,13 +80,15 @@
                             <a href="#" class="list-group-item name">Dapibus ac facilisis in</a>
                         </li>
                         <li class="list-group-item">
-                            <a href="#" class="list-group-item name">Morbi leo risus</a>
+                            <a href="#" class="list-group-item name">Morbi leo risus 111</a>
                         </li>
                         <li class="list-group-item">
                             <a href="#" class="list-group-item name">Porta ac consectetur ac</a>
+                            <a href="#" class="list-group-item address">11111</a>
                         </li>
                         <li class="list-group-item">
                             <a href="#" class="list-group-item name">test</a>
+                            <a href="#" class="list-group-item address">1231213</a>
                         </li>
                     </ul>
                 </div>
@@ -120,6 +115,13 @@
             valueNames: ['name']
         };
         var userList = new List('users2', options);
+        $("#search-watch").keyup(function () {
+            $(".search").val($("#search-watch").val());
+            userList.search($("#search-watch").val());
+        });
+        $(".search").keyup(function () {
+            $("#search-watch").val($(".search").val());
+        });
     </script>
 </body>
 
