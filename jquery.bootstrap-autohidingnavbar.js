@@ -128,24 +128,14 @@
 
         $window.on('orientationchange.' + pluginName, function () {
             hide(autoHidingNavbar);
-            autoHidingNavbar.element.attr("width", $window.width() * 3);
-            show(autoHidingNavbar);
+            var old_border = autoHidingNavbar.element.attr("border");
+            autoHidingNavbar.element.attr("border", "0");
             $(".navbar-brand").append(" 1 " + autoHidingNavbar.element.attr("width"));
             setTimeout(function () {
-                autoHidingNavbar.element.attr("width", $window.width());
-                $(".navbar-brand").append(" 1 " + autoHidingNavbar.element.attr("width"));
-            }, 2000);
-        });
-
-        $window.on('orientationchange', function () {
-            hide(autoHidingNavbar);
-            autoHidingNavbar.element.attr("width", $window.width() * 3);
-            show(autoHidingNavbar);
-            $(".navbar-brand").append(" 2 " + autoHidingNavbar.element.attr("width"));
-            setTimeout(function () {
-                autoHidingNavbar.element.attr("width", $window.width());
-                $(".navbar-brand").append(" 2 " + autoHidingNavbar.element.attr("width"));
-            }, 2000);
+                _windowHeight = $window.height();
+                autoHidingNavbar.element.attr("border", old_border);
+                show(autoHidingNavbar);
+            }, 1000);
         });
     }
 
