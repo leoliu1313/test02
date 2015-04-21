@@ -97,11 +97,32 @@
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 <script src="jquery.bootstrap-autohidingnavbar.js"></script>
-<script type="text/javascript">
-    $(".navbar-fixed-top").autoHidingNavbar();
-</script>
 <script src="http://listjs.com/no-cdn/list.js"></script>
 <script type="text/javascript">
+    var waitForFinalEvent = (function () {
+        var timers = {};
+        return function (callback, ms, uniqueId) {
+            if (!uniqueId) {
+                uniqueId = "Don't call this twice without a uniqueId";
+            }
+            if (timers[uniqueId]) {
+                clearTimeout(timers[uniqueId]);
+            }
+            timers[uniqueId] = setTimeout(callback, ms);
+        };
+    })();
+    // reset the footer height if needed
+    function reset_footer_height() {
+        $("footer").height($("footer").css("height") * $("body").height());
+        if ($("footer").height() < 50) {
+            $("footer").height(50);
+        }
+        $(".not-footer").css("min-height", ($("body").height() - 50));
+    }
+    reset_footer_height();
+    // auto hide narbar
+    $(".navbar-fixed-top").autoHidingNavbar();
+    // set up theList
     var options = {
         item: '<li class="list-group-item"><a href="#" class="list-group-item name"></a></li>',
         valueNames: ['name']
@@ -109,12 +130,13 @@
     var values = [
         {
             name: 'https://www.google.com'
-            }
-    , {
+        }
+, {
             name: 'https://github.com/leoliu1313'
-            }
+        }
 ];
     var theList = new List('id-search-key', options, values);
+    // import Github data into theList
     $.ajax({
         type: "GET",
         url: "https://api.github.com/users/leoliu1313/repos",
@@ -132,11 +154,14 @@
             });
         }
     });
-    $("#search-watch").keyup(function () {
+    // register events
+    $(window).on("resize", reset_footer_height);
+    $(window).on("orientationchange", reset_footer_height);
+    $("#search-watch").on("keyup", function () {
         $(".search").val($("#search-watch").val());
         theList.search($("#search-watch").val());
     });
-    $(".search").keyup(function () {
+    $(".search").on("keyup", function () {
         $("#search-watch").val($(".search").val());
         // console.log('hello');
     });

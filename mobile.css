@@ -17,40 +17,51 @@
 html,
 body {
     display: block; /* it must be block as default */
-    margin: 0;
+    width: 100%;
     height: 100%;
+    margin: 0;
+    padding: 0;
 }
 
 .not-footer {
     display: block; /* it must be block as default */
-    margin: 0;
+    overflow: hidden;
     width: 100%;
     min-height: 95%; /* at least 95% leaves 5% for footer*/
-    overflow: hidden;
+    margin: 0;
+    padding: 0;
 }
 
 footer {
     display: block; /* it must be block as default */
-    margin: 0;
+    width: 100%;
     height: 5%; /* 5% */
+    margin: 0;
+    padding: 0;
+}
+
+footer .footer-table {
+    display: table;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0%;
     /* the following are the style inside the footer */
-    padding: 1.5%;
     background-color: #428bca;
     text-align: center;
 }
 
-.footer-table {
-    display: table;
-    width: 100%;
-}
-
-.footer-row {
+footer .footer-row {
     display: table-row;
 }
 
-.footer-cell {
+footer .footer-cell {
     display: table-cell;
     vertical-align: middle;
+}
+
+footer p {
+    margin: 0;
 }
 
 .navbar .navbar-collapse .navbar-form-no-border {
