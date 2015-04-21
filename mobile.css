@@ -10,6 +10,18 @@
 }
 */
 
+html,
+body {
+	margin:0;
+	padding:0;
+	height:100%;
+}
+
+#wrapper {
+	min-height:100%;
+	position:relative;
+}
+
 .navbar .navbar-collapse .navbar-form-no-border {
     border: 0;
 }
