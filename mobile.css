@@ -20,10 +20,18 @@
 }
 
 .row-no-margin .row {
-    margin:0;
+    margin: 0;
+}
+
+.list li {
+    border: 0;
+    padding: 0;
 }
 
 .footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
     padding: 1.5%;
     background-color: #428bca;
     text-align: center;

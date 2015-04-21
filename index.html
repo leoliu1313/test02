@@ -72,55 +72,30 @@
             <hr>
         </div>
         <div class="row">
-            <div class="panel panel-default">
+            <div class="panel panel-default" id="users2">
                 <div class="panel-heading">
                     <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Search3" aria-label="...">
+                        <input type="text" class="form-control search" placeholder="Search3" aria-label="...">
                     </div>
                 </div>
                 <div class="panel-body">
-                    <div class="list-group">
-                        <a href="#" class="list-group-item">Cras justo odio</a>
-                        <a href="#" class="list-group-item">Dapibus ac facilisis in</a>
-                        <a href="#" class="list-group-item">Morbi leo risus</a>
-                        <a href="#" class="list-group-item">Porta ac consectetur ac</a>
-                        <a href="#" class="list-group-item">test</a>
-                        <a href="#" class="list-group-item">test</a>
-                        <a href="#" class="list-group-item">test</a>
-                        <a href="#" class="list-group-item">test</a>
-                        <a href="#" class="list-group-item">test</a>
-                        <a href="#" class="list-group-item">test</a>
-                        <a href="#" class="list-group-item">test</a>
-                        <a href="#" class="list-group-item">test</a>
-                        <a href="#" class="list-group-item">test</a>
-                        <a href="#" class="list-group-item">test</a>
-                        <a href="#" class="list-group-item">test</a>
-                        <a href="#" class="list-group-item">test</a>
-                        <a href="#" class="list-group-item">test</a>
-                        <a href="#" class="list-group-item">test</a>
-                        <a href="#" class="list-group-item">test</a>
-                        <a href="#" class="list-group-item">test</a>
-                        <a href="#" class="list-group-item">test</a>
-                        <a href="#" class="list-group-item">test</a>
-                        <a href="#" class="list-group-item">test</a>
-                        <a href="#" class="list-group-item">test</a>
-                        <a href="#" class="list-group-item">test</a>
-                        <a href="#" class="list-group-item">test</a>
-                        <a href="#" class="list-group-item">test</a>
-                        <a href="#" class="list-group-item">test</a>
-                        <a href="#" class="list-group-item">test</a>
-                        <a href="#" class="list-group-item">test</a>
-                        <a href="#" class="list-group-item">test</a>
-                        <a href="#" class="list-group-item">test</a>
-                        <a href="#" class="list-group-item">test</a>
-                        <a href="#" class="list-group-item">test</a>
-                        <a href="#" class="list-group-item">test</a>
-                        <a href="#" class="list-group-item">test</a>
-                        <a href="#" class="list-group-item">test</a>
-                        <a href="#" class="list-group-item">test</a>
-                        <a href="#" class="list-group-item">test</a>
-                        <a href="#" class="list-group-item">test</a>
-                    </div>
+                    <ul class="list-group list">
+                        <li class="list-group-item">
+                            <a href="#" class="list-group-item name">Cras justo odio</a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="#" class="list-group-item name">Dapibus ac facilisis in</a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="#" class="list-group-item name">Morbi leo risus</a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="#" class="list-group-item name">Porta ac consectetur ac</a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="#" class="list-group-item name">test</a>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -138,6 +113,13 @@
     <script src="jquery.bootstrap-autohidingnavbar.js"></script>
     <script type="text/javascript">
         $(".navbar-fixed-top").autoHidingNavbar();
+    </script>
+    <script src="http://listjs.com/no-cdn/list.js"></script>
+    <script type="text/javascript">
+        var options = {
+            valueNames: ['name']
+        };
+        var userList = new List('users2', options);
     </script>
 </body>
 
