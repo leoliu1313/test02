@@ -115,15 +115,15 @@
                     scrollHandler(autoHidingNavbar);
                 }, _throttleDelay);
             }
-            $(".navbar-brand").text("0 " + $window.width());
+            // $(".navbar-brand").text(" 0 " + _windowHeight + autoHidingNavbar.element.attr("border"));
         });
 
         $window.on('resize.' + pluginName, function () {
             clearTimeout(_scrollThrottleTimer);
             _scrollThrottleTimer = setTimeout(function () {
                 _windowHeight = $window.height();
-                $(".navbar-brand").append(" w " + _windowHeight);
             }, _throttleDelay);
+            // $(".navbar-brand").text(" 1 " + _windowHeight + autoHidingNavbar.element.attr("border"));
         });
 
         // fix narbar resize issue on Dolphin browser when rotating Android device
@@ -131,12 +131,12 @@
             hide(autoHidingNavbar);
             var old_border = autoHidingNavbar.element.attr("border");
             autoHidingNavbar.element.attr("border", "0");
-            $(".navbar-brand").append(" 1 " + autoHidingNavbar.element.attr("width"));
             setTimeout(function () {
                 _windowHeight = $window.height();
                 autoHidingNavbar.element.attr("border", old_border);
                 show(autoHidingNavbar);
             }, 1000);
+            // $(".navbar-brand").text(" 2 " + _windowHeight + autoHidingNavbar.element.attr("border"));
         });
     }
 
