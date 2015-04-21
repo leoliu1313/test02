@@ -11,28 +11,46 @@
 */
 
 /* the whole webpage structure */
+
 /* footer in the bottom has 5% height of browser height */
 
 html,
 body {
+    display: block; /* it must be block as default */
     margin: 0;
     height: 100%;
 }
 
 .not-footer {
+    display: block; /* it must be block as default */
     margin: 0;
     width: 100%;
-    min-height: 95%;
+    min-height: 95%; /* at least 95% leaves 5% for footer*/
     overflow: hidden;
 }
 
 footer {
+    display: block; /* it must be block as default */
     margin: 0;
-    height: 5%;
+    height: 5%; /* 5% */
     /* the following are the style inside the footer */
     padding: 1.5%;
     background-color: #428bca;
     text-align: center;
+}
+
+.footer-table {
+    display: table;
+    width: 100%;
+}
+
+.footer-row {
+    display: table-row;
+}
+
+.footer-cell {
+    display: table-cell;
+    vertical-align: middle;
 }
 
 .navbar .navbar-collapse .navbar-form-no-border {
