@@ -1,3 +1,4 @@
+/*
 .navbar .navbar-nav {
     display: inline-block;
     float: none;
@@ -7,6 +8,7 @@
 .navbar .navbar-collapse {
     text-align: center;
 }
+*/
 
 .navbar .navbar-collapse .navbar-form-no-border {
     border: 0;
@@ -17,8 +19,8 @@
     margin-left: 15px;
 }
 
-.top-buffer {
-    margin-top: 30px;
+.row-no-margin .row {
+    margin:0;
 }
 
 .footer {
@@ -27,14 +29,28 @@
     text-align: center;
 }
 
+.container {
+    max-width: 700px;
+}
+
+.container-core {
+    margin-top: 50px;
+    padding: 0 15px 0;
+}
+
 .footer p {
     margin: 0;
     color: #333333;
 }
 
-.container-800-center-padding {
-    padding-left: 3%;
-    padding-right: 3%;
+.navbar .navbar-nav {
+    display: inline-block;
+    float: none;
+    vertical-align: middle;
+}
+
+.navbar .navbar-collapse {
+    text-align: center;
 }
 
 .navbar-default {

@@ -1,16 +1,8 @@
 /* responsive - Constrain the maximum width of the design for wide viewport */
-
-.container-800-center-padding {
-    margin: auto; /* browser defines it. align in center if element is display: block */
+/* supported by bootstrap
+/*
+.container {
+    margin: auto;
     max-width: 800px;
 }
-
-.navbar .navbar-nav {
-    display: inline-block;
-    float: none;
-    vertical-align: middle;
-}
-
-.navbar .navbar-collapse {
-    text-align: center;
-}
+*/
