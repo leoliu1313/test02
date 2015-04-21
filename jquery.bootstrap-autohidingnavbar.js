@@ -126,7 +126,8 @@
             }, _throttleDelay);
         });
 
-        $window.on('orientationchange.' + pluginName, function () {
+        // fix narbar resize issue on Dolphin browser when rotating Android device
+        $window.on('orientationchange', function () {
             hide(autoHidingNavbar);
             var old_border = autoHidingNavbar.element.attr("border");
             autoHidingNavbar.element.attr("border", "0");
