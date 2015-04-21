@@ -10,34 +10,26 @@
 }
 */
 
+/* the whole webpage structure */
+/* footer in the bottom has 5% height of browser height */
+
 html,
 body {
     margin: 0;
-    padding: 0;
     height: 100%;
 }
 
-/*
-#wrapper {
-    min-height: 100%;
-    position: relative;
+.not-footer {
+    margin: 0;
+    width: 100%;
+    min-height: 95%;
+    overflow: hidden;
 }
 
-#buffer {
-    position: absolute;
-    bottom: top;
-    min-height: 100%;
-    width: 100%;
-}
-*/
-
-.footer {
-    /*
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    height: 60px;
-    */
+footer {
+    margin: 0;
+    height: 5%;
+    /* the following are the style inside the footer */
     padding: 1.5%;
     background-color: #428bca;
     text-align: center;
