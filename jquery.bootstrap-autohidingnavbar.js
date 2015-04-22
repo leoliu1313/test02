@@ -126,6 +126,7 @@
             // $(".navbar-brand").text(" 1 " + _windowHeight + autoHidingNavbar.element.attr("border"));
         });
 
+        // Ching-yao Liu - 2015
         // fix narbar resize issue on Dolphin browser when rotating Android device
         $window.on('orientationchange', function () {
             hide(autoHidingNavbar);
