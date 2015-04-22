@@ -44,7 +44,7 @@
                         <li>
                             <form class="navbar-form navbar-form-no-border" role="search">
                                 <div class="form-group">
-                                    <input type="text" class="form-control" id="search-watch" placeholder="Search" aria-label="...">
+                                    <input id="search-watch" type="text" class="form-control" placeholder="Search">
                                 </div>
                             </form>
                         </li>
@@ -65,10 +65,11 @@
                 <hr>
             </div>
             <div class="row">
-                <div class="panel panel-default" id="id-search-key">
+                <div id="id-search-key" class="panel panel-default">
                     <div class="panel-heading">
                         <div class="input-group">
-                            <input type="text" class="form-control search" placeholder="Search" aria-label="...">
+                            <input id="search-real" type="text" class="form-control search" placeholder="Search">
+                            <span id="search-clear" class="glyphicon glyphicon-remove form-control-feedback form-control-clear"></span>
                         </div>
                     </div>
                     <div class="panel-body">
@@ -78,8 +79,10 @@
                 </div>
             </div>
         </div>
+        <div class="not-footer-buffer">
+        </div>
     </div>
-    <footer>
+    <footer class="footer">
         <div class="footer-table">
             <div class="footer-row">
                 <div class="footer-cell">
@@ -99,27 +102,7 @@
 <script src="jquery.bootstrap-autohidingnavbar.js"></script>
 <script src="http://listjs.com/no-cdn/list.js"></script>
 <script type="text/javascript">
-    var waitForFinalEvent = (function () {
-        var timers = {};
-        return function (callback, ms, uniqueId) {
-            if (!uniqueId) {
-                uniqueId = "Don't call this twice without a uniqueId";
-            }
-            if (timers[uniqueId]) {
-                clearTimeout(timers[uniqueId]);
-            }
-            timers[uniqueId] = setTimeout(callback, ms);
-        };
-    })();
-    // reset the footer height if needed
-    function reset_footer_height() {
-        $("footer").height($("footer").css("height") * $("body").height());
-        if ($("footer").height() < 50) {
-            $("footer").height(50);
-        }
-        $(".not-footer").css("min-height", ($("body").height() - 50));
-    }
-    reset_footer_height();
+    $('#search-clear').toggle(false);
     // auto hide narbar
     $(".navbar-fixed-top").autoHidingNavbar();
     // set up theList
@@ -129,12 +112,14 @@
     };
     var values = [
         {
-            name: 'https://www.google.com'
-        }
-, {
             name: 'https://github.com/leoliu1313'
-        }
-];
+        }, {
+            name: 'https://www.google.com'
+        }, {
+            name: 'http://getbootstrap.com'
+        }, {
+            name: 'http://getbootstrap.com/getting-started/#template'
+        }];
     var theList = new List('id-search-key', options, values);
     // import Github data into theList
     $.ajax({
@@ -155,16 +140,50 @@
         }
     });
     // register events
-    $(window).on("resize", reset_footer_height);
-    $(window).on("orientationchange", reset_footer_height);
-    $("#search-watch").on("keyup", function () {
-        $(".search").val($("#search-watch").val());
-        theList.search($("#search-watch").val());
-    });
-    $(".search").on("keyup", function () {
-        $("#search-watch").val($(".search").val());
-        // console.log('hello');
-    });
+    var waitForFinalEvent = (function () {
+        var timers = {};
+        return function (callback, ms, uniqueId) {
+            if (!uniqueId) {
+                uniqueId = "Don't call this twice without a uniqueId";
+            }
+            if (timers[uniqueId]) {
+                clearTimeout(timers[uniqueId]);
+            }
+            timers[uniqueId] = setTimeout(callback, ms);
+        };
+    })();
+    var theList_do_search = function () {
+        theList.search($("#search-real").val());
+        // console.log('debug theList_do_search');
+    };
+    var search_watch_sync_up = function () {
+        waitForFinalEvent(function () {
+            $("#search-real").val($("#search-watch").val());
+            $('#search-clear').toggle(Boolean($("#search-watch").val()));
+            theList_do_search();
+        }, 100, "search_watch_sync_up");
+    };
+    var search_real_sync_up = function () {
+        waitForFinalEvent(function () {
+            $("#search-watch").val($("#search-real").val());
+            $('#search-clear').toggle(Boolean($("#search-real").val()));
+            // theList_do_search is already registed inside api
+        }, 100, "search_real_sync_up");
+    };
+    var search_clear_do_clear = function () {
+        waitForFinalEvent(function () {
+            $('#search-real').val('');
+            $('#search-watch').val('');
+            $('#search-real').focus();
+            theList_do_search();
+            $('#search-clear').toggle(false);
+        }, 100, "search_clear_do_clear");
+    };
+    $("#search-watch").on("keyup", search_watch_sync_up);
+    $("#search-watch").on("input", search_watch_sync_up);
+    $("#search-real").on("keyup", search_real_sync_up);
+    $('#search-real').on("input", search_real_sync_up);
+    $('#search-clear').on("click", search_clear_do_clear);
 </script>
 
 </html>
